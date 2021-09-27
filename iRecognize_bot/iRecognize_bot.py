@@ -2,7 +2,7 @@
 import telebot, requests, validators, csv, time, os, re, os.path, threading
 from datetime import datetime
 
-TOKEN = "1923387122:AAHo6Df0K4senfkSAFYKGRvt4rPVUtXztIM"
+TOKEN = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 bot = telebot.TeleBot(token = TOKEN, threaded = False)
 
 # The message received is a text
