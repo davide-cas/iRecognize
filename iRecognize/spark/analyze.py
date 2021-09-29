@@ -38,9 +38,9 @@ from PIL import Image
 import requests, json, random
 
 def get_prediction(file_name):
-    training_key = "aced45df217b40c29c887a160d609ff4"
-    iteration_id = "196bbbf8-942a-4811-871a-6601c2b22fd7"
-    project_id = "3836da1d-d9ff-4130-83eb-0bf0db618207"
+    training_key = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    iteration_id = "YYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
+    project_id = "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"
 
     # Load Image
     img = Image.open("/usr/share/logstash/csv/photos/" + file_name)
