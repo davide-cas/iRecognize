@@ -1,8 +1,9 @@
 # pip install pyTelegramBotAPI
 import telebot, requests, validators, csv, time, os, re, os.path, threading
 from datetime import datetime
+from telebot import types
 
-TOKEN = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+TOKEN = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 bot = telebot.TeleBot(token = TOKEN, threaded = False)
 
 # The message received is a text
@@ -58,7 +59,17 @@ def message_received(message):
         txt = msg.lower()
         
         if "hello" in txt or "hi" in txt: bot.send_message(chat_id = message.from_user.id, text = "Hello " + message.from_user.first_name + "! 😊")
-        elif "/start" in txt: bot.send_message(chat_id = message.from_user.id, text = "Welcome " + message.from_user.first_name + "! I am iRecognize bot 🤓\nLet's send me photos, I'll do my best to detect them 😊")
+        
+        elif "/start" in txt:
+            markup = types.ReplyKeyboardMarkup()
+            help = types.KeyboardButton("ℹ️ Help")
+            prediction = types.KeyboardButton("🔍 Prediction")
+            markup.row(help, prediction)
+            bot.send_message(chat_id = message.from_user.id, text = "Welcome " + message.from_user.first_name + "! I am *iRecognize bot* 🤓\n\n\n📄 type /help to look up the *documentation*.\n\n🔍 type /prediction to get *information about the predicted results*.\n\n\n🖼 let's *send me some photos*, I'll do my best to detect them!", parse_mode = "Markdown", reply_markup = markup)
+            
+        elif "/help" in txt or "help" in txt: bot.send_message(chat_id = message.from_user.id, text = "Project for the '*Technologies for Andvanced Programming*' course @ *University of Catania*, september 2021.\n\n\nℹ️ this project aims, with a with a custom trained prediction model, to *make the environment* around you *easier to understand*.\n\n⚠️ this bot *hasn’t an active server*: it works only if you download and start the source code.\n\n🔓 this is an *open-source project*, the code is downloadable and editable free of charge.\n\n\nYou can find the source code, the user manual and all the necessary info on my *GitHub*: github.com/davide-cas/irecognize.\nFor any information, doubts or questions feel free to write to me 🤓", parse_mode = "Markdown")
+        elif "/prediction" in txt or "prediction" in txt:
+            bot.send_message(chat_id = message.from_user.id, text = "This model has been trained with *Custom Vision*: a custom Computer Vision model trained with *80 different classes* and about 5000 pictures of COCO's dataset.\n\nYou can look up the entire list of trained classes by the following link: https://bit.ly/3kTIVs6", parse_mode = "Markdown")
         else: bot.send_message(chat_id = message.from_user.id, text = "Oops! I didn't catch what you mean 🤦🏻‍♂️")
 
 # The message received is a photo
@@ -93,18 +104,18 @@ def directory_checker():
     before = dict ([(f, None) for f in os.listdir(directory)])
     
     while 1:
-        time.sleep(1.25)
+        
 
         after = dict ([(f, None) for f in os.listdir(directory)])
         added = [f for f in after if not f in before]
         
         if added:
+            time.sleep(1.25)
             new_file = added[0]
-            
-            # There are no predictions
+            # There is no prediction
             if "EMPTY" in new_file:
                 chat_id = new_file.split("_")[2]
-                bot.send_message(chat_id = chat_id, text = "I'm so sorry 🥺, I couldn't detect anything..\nRetry sending another image, I'll do the best! 😉")
+                bot.send_message(chat_id = chat_id, text = "I'm so sorry 🥺, I couldn't detect anything..\n\nRetry sending another image, I'll do the best! 😉")
             
             # The prediction was successful: resend the predicted image back to the user
             else:
