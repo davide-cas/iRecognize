@@ -1,7 +1,7 @@
 # iRecognize: Visual Intelligence Made Easy
 <p align="center">
   <img src="https://user-images.githubusercontent.com/55694345/134716978-c51f82f2-92d4-419b-8dbf-bfb1e0646eb6.png" width=50% height=50% />
-![bot](https://user-images.githubusercontent.com/55694345/135579317-4b3db508-2f81-41e2-ba18-0ffa50d8b8dd.jpg)
+<img src="https://user-images.githubusercontent.com/55694345/135579317-4b3db508-2f81-41e2-ba18-0ffa50d8b8dd.jpg" width=50% height=50% />
   </p><br>
 
 
