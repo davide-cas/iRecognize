@@ -16,3 +16,5 @@ The pipeline was built using the following services: Docker, Logstash, Kafka, Sp
 🔓 this is an open-source project, the code is downloadable and editable free of charge. <br>
 
 For any information, doubts or questions feel free to write to me!
+
+<p align="center"> <img src="https://user-images.githubusercontent.com/55694345/136175008-9f795e4e-7d76-4e9f-bc3e-e1eddc95eecc.jpg" width=80% height=80% /> </p>
