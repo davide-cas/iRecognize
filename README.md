@@ -6,7 +6,7 @@
 
 Project for the "Technologies for Andvanced Programming" course @ University of Catania, september 2021.<br>
 
-Telegram bot that allows you to do Object Detection in real-time of any photo sent. The project includes a customized Machine Learning model trained in cloud via Microsoft Azure with 5000 images and more than 80 different classes. <br>
+Telegram bot which allows you to perform object detection of any photo sent in real-time. The project includes a customized Machine Learning model trained in cloud via Microsoft Azure with 5000 images and more than 80 different classes. <br>
 The pipeline was built using the following services: Docker, Logstash, Kafka, Spark, Python, MS Azure Cognitive Services, Elasticsearch and Kibana. <br>
 
 <p align="center"> <img src="https://user-images.githubusercontent.com/55694345/135579317-4b3db508-2f81-41e2-ba18-0ffa50d8b8dd.jpg" width=80% height=80% /> </p>
